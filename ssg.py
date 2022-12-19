@@ -10,5 +10,5 @@ def main(source = "content", dest = "dist"):
     SiteInstance = Site(config["source"], config["dest"])
     SiteInstance.build()
 
-typer.run(main())
+typer.run(main)
 
