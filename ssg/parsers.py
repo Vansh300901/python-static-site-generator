@@ -10,9 +10,9 @@ class Parser:
     def parse(self, path: Path, source: Path, dest: Path):
         raise NotImplementedError
 
-    
-
-
+    def read(self, path):
+        with open(path, "r") as file:
+            return file.read()
     
 
 
