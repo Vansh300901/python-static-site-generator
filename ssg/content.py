@@ -13,13 +13,20 @@ class Content(Mapping):
         metadata = load(fm, Loader = FullLoader)
         return cls(metadata, content)
 
-    def __init__(metadata, content):
+    def __init__(self, metadata, content):
         self.data = metadata
         self.data["content"] = content
 
     @property
-    def body():
+    def body(self):
         return self.data["content"]
+
+    @property
+    def type(self):
+        return self.data["type"] if "type" in self.data else None
+    
+    
+
 
 
 
