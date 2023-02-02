@@ -1,0 +1,16 @@
+import re
+from yaml import load
+from yaml import FullLoader
+from collections.abc import Mapping
+
+class Content(Mapping):
+    __delimter = "(?:-|\+){3}\s*$"
+    __regex = re.compile(__delimter, re.MULTILINE)
+    
+    @classmethod
+    def load(cls, string):
+        _, fm, content = cls.__regex.split(string, 2)
+        metadata = load(fm, Loader = FullLoader)
+        return(metadata, content)
+        
+
